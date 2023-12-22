@@ -37,7 +37,7 @@
         }
     ],
     "websiteContactTitle": "Contact us",
-    "websiteContactText": "Contact us today to book an appointment at <strong>COMPANY_EMAIL</strong> or call us at <strong>COMPANY_PHONE</strong>.",
+    "websiteContactText": "Contact us today to book an appointment at <strong>{companyEmail}</strong> or call us at <strong>{companyPhone}</strong>.",
     "websiteContactSchedule": [
         {
             "day": "Monday",
@@ -86,22 +86,38 @@
             "link": "/policy.html"
         }
     ],
-    "websiteFooterSocialMedia": [
+    "websiteFooterSocialMediaLine1": [
         {
             "name": "Facebook",
-            "link": "https://www.facebook.com/"
+            "link": "https://www.facebook.com/",
+            "icon": "fa-facebook-f"
         },
         {
             "name": "Twitter",
-            "link": "https://twitter.com/"
+            "link": "https://twitter.com/",
+            "icon": "fa-twitter"
         },
         {
             "name": "Instagram",
-            "link": "https://www.instagram.com/"
+            "link": "https://www.instagram.com/",
+            "icon": "fa-instagram"
+        }
+    ],
+    "websiteFooterSocialMediaLine2": [
+        {
+            "name": "YouTube",
+            "link": "",
+            "icon": "fa-youtube"
         },
         {
             "name": "LinkedIn",
-            "link": "https://www.linkedin.com/"
+            "link": "https://www.linkedin.com/",
+            "icon": "fa-linkedin-in"
+        },
+        {
+            "name": "Snapchat",
+            "link": "",
+            "icon": "fa-snapchat"
         }
     ]
 }

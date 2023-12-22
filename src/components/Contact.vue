@@ -5,43 +5,31 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">{{ websiteContactTitle }}</h2>
-          <h3 class="section-subheading text-muted">Do not hesitate to reach out if you have any request.</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-            <!-- <div class="alert alert-warning">Sorry, my mail server is not available at the moment! Contact me at <strong>jacques.mi@outlook.com</strong></div> -->
-            <div class="alert alert-warning">If my mail server is not available at the moment, please contact me at <strong id="adminEmail">jacques.mi@outlook.com</strong></div>
+            <div class="alert alert-warning" v-html="contactText"></div>
         </div>
         <div class="col-lg-12">
-          <!-- <form id="contactForm" name="sentMessage" novalidate="novalidate" class="js-contact-form"> -->
-          <form id="contactForm" name="sentMessage" class="js-contact-form">
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required
-                    data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required
-                    data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="subject" type="text" placeholder="Your Subject">
-                  <p class="help-block text-danger"></p>
-                </div>
+                <div class="contact-info">{{ companyAddress }}</div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <textarea class="form-control" id="message" placeholder="Your Message *" required
                     data-validation-required-message="Please enter a message."></textarea>
                   <p class="help-block text-danger"></p>
+                </div> -->
+                <div class="contact-schedule">
+                  <p class="contact-schedule-row" v-for="item in websiteContactSchedule">
+                    <span class="contact-schedule-day">{{ item.day }}</span>
+                    <span class="contact-schedule-hours">{{ item.hours }}</span>
+                  </p>
                 </div>
               </div>
             </div>
-          </form>
         </div>
       </div>
     </div>
@@ -49,5 +37,28 @@
 </template>
 
 <script setup lang="ts">
-import { websiteContactSchedule, websiteContactText, websiteContactTitle } from '../../public/config.json';
+import { websiteContactSchedule, websiteContactText, websiteContactTitle, companyEmail, companyPhone, companyAddress } from '../../public/config.json';
+
+const contactText = websiteContactText.replace('{companyEmail}', companyEmail)
+  .replace('{companyPhone}', companyPhone);
 </script>
+
+<style scoped>
+.contact-schedule,
+.contact-info {
+    background-color: #fff;
+    border-color: #fff;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: .25rem;
+}
+
+.contact-schedule-row {
+  border-bottom: 1px solid #eee;
+}
+
+.contact-schedule-hours {
+  float: right;
+}
+</style>

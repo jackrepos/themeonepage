@@ -8,7 +8,7 @@
           <h3 class="section-subheading text-muted">{{ websiteServicesText }}</h3>
         </div>
       </div>
-      <div class="row text-center">
+      <div class="row text-center services-row">
         <div class="col-md-4 services-card" v-for="websiteService of websiteServices">
           <div class="img-card">
             <img :src="websiteService.image" alt="">
@@ -27,7 +27,19 @@ import { websiteServices, websiteServicesText, websiteServicesTitle } from '../.
 
 <style scoped>
 .services-card {
-  box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -4px 4px 10px 4px rgba(0, 0, 0, 0.05);
+}
+
+.services-row {
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .services-row .col-md-4 {
+      -ms-flex: 0 0 31%;
+      flex: 0 0 31%;
+      max-width: 31%;
+  }
 }
 
 .services-card .img-card {
