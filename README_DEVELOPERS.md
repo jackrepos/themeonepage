@@ -11,7 +11,7 @@ npm run dev
 # Build for production
 npm run build
 # To deploy on github. If there is a custom domain added to github then you need to download the CNAME file (in public folder if needed) that github automatically create and push in the branch into /dist
-npm run deploy
+npm run build && npm run deploy
 
 # before deploying, add `"deploy": "gh-pages -d dist"` to `package.json`
 npm install gh-pages --save-dev
