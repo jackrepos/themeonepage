@@ -19,6 +19,9 @@ Create folder `css` in `public`.
 Move `bootstrap.min.css` to the `css` folder.
 Add line `<link href="/css/bootstrap.min.css" rel="stylesheet">`
 
+- To create new page
+Create html `policy.html`, then create `policy.ts` then `Policy.vue`
+
 ---
 
 This template should help get you started developing with Vue 3 in Vite.
