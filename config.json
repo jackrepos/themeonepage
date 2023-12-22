@@ -3,6 +3,12 @@
     "companyAddress": "5100 boul. Robert-Bourassa Laval, QC H7E 0A6",
     "companyPhone": "514-555-5555",
     "companyEmail": "info@dentisteatmontreal.com",
+    "websiteRoutes": {
+        "#": "Home",
+        "#services": "Home",
+        "#contact": "Home",
+        "#policy": "Policy"
+    },
     "websiteMenuItems": [
         {
             "name": "Services",
@@ -83,7 +89,7 @@
         },
         {
             "name": "Privacy Policy",
-            "link": "/policy.html"
+            "link": "/#policy"
         }
     ],
     "websiteFooterSocialMediaLine1": [
