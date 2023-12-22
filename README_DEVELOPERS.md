@@ -10,8 +10,11 @@ npm install
 npm run dev
 # Build for production
 npm run build
-# To deploy on github. If there is a custom domain added to github then you need to download the CNAME file that github automatically create and push in the branch into /dist
+# To deploy on github. If there is a custom domain added to github then you need to download the CNAME file (in public folder if needed) that github automatically create and push in the branch into /dist
 npm run deploy
+
+# before deploying, add `"deploy": "gh-pages -d dist"` to `package.json`
+npm install gh-pages --save-dev
 ```
 
 - To add Bootstrap
@@ -45,7 +48,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Project Setup 2
 
 ```sh
 npm install
