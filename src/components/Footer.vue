@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { companyName, websiteFooterMenuItems, websiteFooterSocialMediaLine1, websiteFooterSocialMediaLine2 } from '../../public/config.json';
+import { ref, onMounted } from 'vue';
 const currentYear = new Date().getFullYear();
 const icons = [
   'fa-facebook-f',
@@ -48,6 +48,36 @@ const icons = [
   'fa-github-alt',
   'fa-patreon',
 ];
+const websiteFooterSocialMediaLine1 = ref([
+  {
+    name: '',
+    link: '',
+    icon: ''
+  }
+]);
+const websiteFooterSocialMediaLine2 = ref([
+  {
+    name: '',
+    link: '',
+    icon: ''
+  }
+]);
+const websiteFooterMenuItems = ref([
+  {
+    name: '',
+    link: ''
+  }
+]);
+const companyName = ref('');
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websiteFooterSocialMediaLine1.value = data.websiteFooterSocialMediaLine1;
+  websiteFooterSocialMediaLine2.value = data.websiteFooterSocialMediaLine2;
+  websiteFooterMenuItems.value = data.websiteFooterMenuItems;
+  companyName.value = data.companyName;
+});
 </script>
 
 <style scoped>

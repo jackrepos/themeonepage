@@ -17,11 +17,6 @@
                 <div class="contact-info">{{ companyAddress }}</div>
               </div>
               <div class="col-md-6">
-                <!-- <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Message *" required
-                    data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div> -->
                 <div class="contact-schedule">
                   <p class="contact-schedule-row" v-for="item in websiteContactSchedule">
                     <span class="contact-schedule-day">{{ item.day }}</span>
@@ -37,10 +32,35 @@
 </template>
 
 <script setup lang="ts">
-import { websiteContactSchedule, websiteContactText, websiteContactTitle, companyEmail, companyPhone, companyAddress } from '../../public/config.json';
+import { ref, onMounted } from 'vue';
 
-const contactText = websiteContactText.replace('{companyEmail}', companyEmail)
-  .replace('{companyPhone}', companyPhone);
+const websiteContactSchedule = ref([
+  {
+    day: '',
+    hours: ''
+  }
+]);
+const websiteContactText = ref('');
+const websiteContactTitle = ref('');
+const companyEmail = ref('');
+const companyPhone = ref('');
+const companyAddress = ref('');
+const contactText = ref('');
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websiteContactSchedule.value = data.websiteContactSchedule;
+  websiteContactText.value = data.websiteContactText;
+  websiteContactTitle.value = data.websiteContactTitle;
+  companyEmail.value = data.companyEmail;
+  companyPhone.value = data.companyPhone;
+  companyAddress.value = data.companyAddress;
+  contactText.value = websiteContactText.value
+    .replace('{companyEmail}', companyEmail.value)
+    .replace('{companyPhone}', companyPhone.value);
+});
+
 </script>
 
 <style scoped>

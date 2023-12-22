@@ -1,21 +1,23 @@
 <template>
-    <Header />
-    <template v-if="isPolicy">
-      <PolicyContent />
-    </template>
-    <template v-else-if="isError404">
-      <Error404 />
-    </template>
-    <template v-else>
-      <Hero />
-      <Services />
-      <!-- <Clients /> -->
-      <Contact />
-    </template>
-    <Footer />
+  <Header />
+  <template v-if="isPolicy">
+    <PolicyContent />
+  </template>
+  <template v-else-if="isError404">
+    <Error404 />
+  </template>
+  <template v-else>
+    <Hero />
+    <Services />
+    <!-- <Clients /> -->
+    <Contact />
+  </template>
+  <Footer />
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+
 import Header from './components/Header.vue';
 import Hero from './components/Hero.vue';
 import Services from './components/Services.vue';
@@ -24,29 +26,36 @@ import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
 import Error404 from './components/Error404.vue';
 import PolicyContent from './components/PolicyContent.vue';
-import { ref } from 'vue';
-import { websiteRoutes } from '../public/config.json';
 
-// const routes : { [key: string]: string } = {
-//   '/': 'Home',
-//   'policy': 'Policy',
-// }
-const routes : { [key: string]: string } = websiteRoutes;
+// import { websiteRoutes } from '../public/config.json';
+const websiteRoutes = ref({});
+
+onMounted(async () => {
+  handleRouteChange();
+});
+
+// const routes: { [key: string]: string } = websiteRoutes.value;
 
 const currentPath = ref(window.location.hash);
-let currentView = routes[currentPath.value || '#'] || 'Error404';
-const isPolicy = ref(currentView === 'Policy');
-const isError404 = ref(currentView === 'Error404');
-  console.log('currentView', currentView);
+const isPolicy = ref(false);
+const isError404 = ref(false);
+console.log('currentView', isPolicy.value, isError404.value);
 
 window.addEventListener('hashchange', () => {
+  handleRouteChange();
+});
+
+const handleRouteChange = async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websiteRoutes.value = data.websiteRoutes;
+  const routes: { [key: string]: string } = websiteRoutes.value;
   currentPath.value = window.location.hash
-  // currentPath.value = window.location.pathname
-  currentView = routes[currentPath.value || '#'] || 'Error404';
+  const currentView = routes[currentPath.value || '#'] || 'Error404';
   isPolicy.value = currentView === 'Policy';
   isError404.value = currentView === 'Error404';
   console.log('currentView', currentView);
-});
+};
 
 // if (currentPath.value.includes('#page-')) {
 //   const currentView = routes[currentPath.value.replace('#page-', '') || '/'] || 'Error404';
@@ -67,14 +76,17 @@ window.addEventListener('hashchange', () => {
   font-family: Montserrat;
   src: url(/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
+
 @font-face {
   font-family: 'Kaushan Script';
   src: url(/fonts/KaushanScript-Regular.ttf);
 }
+
 @font-face {
   font-family: 'Droid Serif';
   src: url(/fonts/droid-serif/DroidSerif-Regular.ttf);
 }
+
 @font-face {
   font-family: 'Roboto Slab';
   src: url(/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
@@ -107,5 +119,4 @@ input[type=text].active-green:focus {
 *[title*="000webhost"],
 *[alt*="000webhost"] {
   display: none;
-}
-</style>
+}</style>

@@ -16,7 +16,17 @@
 </template>
 
 <script setup lang="ts">
-import { websitePolicyText, websitePolicyTitle } from '../../public/config.json';
+import { ref, onMounted } from 'vue';
+
+const websitePolicyText = ref('');
+const websitePolicyTitle = ref('');
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websitePolicyText.value = data.websitePolicyText;
+  websitePolicyTitle.value = data.websitePolicyTitle;
+});
 </script>
 
 <style scoped>

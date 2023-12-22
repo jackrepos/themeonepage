@@ -22,7 +22,25 @@
 </template>
 
 <script setup lang="ts">
-import { websiteServices, websiteServicesText, websiteServicesTitle } from '../../public/config.json';
+import { ref, onMounted } from 'vue';
+
+const websiteServices = ref([
+  {
+    name: '',
+    description: '',
+    image: ''
+  }
+]);
+const websiteServicesText = ref('');
+const websiteServicesTitle = ref('');
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websiteServices.value = data.websiteServices;
+  websiteServicesText.value = data.websiteServicesText;
+  websiteServicesTitle.value = data.websiteServicesTitle;
+});
 </script>
 
 <style scoped>
@@ -37,9 +55,9 @@ import { websiteServices, websiteServicesText, websiteServicesTitle } from '../.
 
 @media (min-width: 768px) {
   .services-row .col-md-4 {
-      -ms-flex: 0 0 31%;
-      flex: 0 0 31%;
-      max-width: 31%;
+    -ms-flex: 0 0 31%;
+    flex: 0 0 31%;
+    max-width: 31%;
   }
 }
 

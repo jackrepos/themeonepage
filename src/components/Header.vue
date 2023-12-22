@@ -20,7 +20,21 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { companyName, websiteMenuItems } from '../../public/config.json';
+
+const companyName = ref('');
+const websiteMenuItems = ref([
+  {
+    name: '',
+    link: ''
+  }
+]);
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  companyName.value = data.companyName;
+  websiteMenuItems.value = data.websiteMenuItems;
+});
 
 const forceShrink = ref(false);
 

@@ -12,7 +12,21 @@
 </template>
 
 <script setup lang="ts">
-import { websiteWelcomeText, websiteWelcomeText2, websiteWelcomeButtonLink, websiteWelcomeButtonText } from '../../public/config.json';
+import { ref, onMounted } from 'vue';
+
+const websiteWelcomeText = ref('');
+const websiteWelcomeText2 = ref('');
+const websiteWelcomeButtonLink = ref('');
+const websiteWelcomeButtonText = ref('');
+
+onMounted(async () => {
+  const response = await fetch('/config.json');
+  const data = await response.json();
+  websiteWelcomeText.value = data.websiteWelcomeText;
+  websiteWelcomeText2.value = data.websiteWelcomeText2;
+  websiteWelcomeButtonLink.value = data.websiteWelcomeButtonLink;
+  websiteWelcomeButtonText.value = data.websiteWelcomeButtonText;
+});
 </script>
 
 <style scoped>

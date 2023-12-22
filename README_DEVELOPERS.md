@@ -29,8 +29,8 @@ Create html `policy.html`, then create `policy.ts` then `Policy.vue`
 ## Inspirations
 
 <https://www.dentistealaval.com/en/#>
-<https://www.dentistealaval.com/en/cerec-crown/>
-<https://www.dentistealaval.com/en/financing/>
-<https://www.dentistealaval.com/en/appointment/>
-<https://www.dentistealaval.com/en/privacy-policy/>
+<https://vuejs.org/guide/quick-start.html>
 
+## Time taken
+
+Around 20h of wokrs
