@@ -14,6 +14,10 @@ npm run build
 npm run deploy
 ```
 
+- To add Bootstrap
+Create folder `css` in `public`.
+Move `bootstrap.min.css` to the `css` folder.
+Add line `<link href="/css/bootstrap.min.css" rel="stylesheet">`
 
 ---
 

@@ -1,47 +1,66 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-import TheWelcome from './components/TheWelcome.vue';
+import Header from './components/Header.vue';
+import Hero from './components/Hero.vue';
+import Services from './components/Services.vue';
+import Clients from './components/Clients.vue';
+import Contact from './components/Contact.vue';
+import Footer from './components/Footer.vue';
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <Header />
+    <Hero />
+    <Services />
+    <!-- <Clients /> -->
+    <Contact />
+    <Footer />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+@font-face {
+  font-family: Montserrat;
+  src: url(/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: 'Kaushan Script';
+  src: url(/fonts/KaushanScript-Regular.ttf);
+}
+@font-face {
+  font-family: 'Droid Serif';
+  src: url(/fonts/droid-serif/DroidSerif-Regular.ttf);
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url(/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+input[type=text].active-cyan:focus {
+  border: 1px solid #4dd0e1;
+  box-shadow: 0 0 0 1px #4dd0e1;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+input[type=text].active-green:focus {
+  border: 1px solid #76b852;
+  box-shadow: 0 0 0 1px #76b852;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.space-below {
+  margin-bottom: 30px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.space-above {
+  margin-top: 30px;
+}
+
+.space-above-big {
+  margin-top: 60px;
+}
+
+*[href*="000webhost"],
+*[src*="000webhost"],
+*[title*="000webhost"],
+*[alt*="000webhost"] {
+  display: none;
 }
 </style>

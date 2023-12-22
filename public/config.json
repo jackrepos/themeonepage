@@ -1,0 +1,107 @@
+{
+    "companyName": "Dentist at Montreal",
+    "companyAddress": "5100 boul. Robert-Bourassa Laval, QC H7E 0A6",
+    "companyPhone": "514-555-5555",
+    "companyEmail": "info@dentisteatmontreal.com",
+    "websiteMenuItems": [
+        {
+            "name": "Services",
+            "link": "/#services"
+        },
+        {
+            "name": "Contact",
+            "link": "/#contact"
+        }
+    ],
+    "websiteWelcomeText": "Welcome to patients!",
+    "websiteWelcomeText2": "Your dental clinic in Montreal for all your needs.",
+    "websiteWelcomeButtonText": "Show me more",
+    "websiteWelcomeButtonLink": "/#services",
+    "websiteServicesTitle": "Our services",
+    "websiteServicesText": "Our dental clinic in Montreal offers a wide range of dental services. We are proud to offer you the best dental care in a warm and welcoming environment. Our team of dentists and dental hygienists will be happy to welcome you and answer all your questions.",
+    "websiteServices": [
+        {
+            "name": "Invisalign",
+            "description": "Do you dream of having a beautiful smile? Do you want to improve the health and esthetics of your mouth while straightening your smile? Discuss options with your dentist and transform this dream into reality!<br>How will orthodontic treatments improve my life ?<br><br>A beautiful straight smile is also more practical. Straight teeth make cleaning the gums and teeth much easier, for optimal dental health with proper care. Futhermore, it reduces the risk of abnormal wear and injury to the teeth.",
+            "image": "/img/invisalign.jpg"
+        },
+        {
+            "name": "Dental Implants",
+            "description": "A dental implant is an artificial tooth root that is placed into your gum, more precisely in your jaw. Our dentists install a porcelain crown or procelain bridge on the dental implant. Dental implants may be an option for people who have broken or lost a tooth due to periodontal disease, an injury, or some other reason.",
+            "image": "/img/dental-implants.jpg"
+        },
+        {
+            "name": "CEREC Crown",
+            "description": "The crown is a “hat” in the shape of a tooth that completely covers the decayed or damaged tooth. The dentist prepares some of the natural tooth to make room for the crown. The crown protects the tooth and restores its original color and shape.<br><br>CEREC's modern digital technology allows your dentist from Dentistealaval.com, in certain circumstances - after a complete exam - to make your aesthetic and resistant crown on-site in a single appointment, from the preparation of your tooth to the cementation of your crown.",
+            "image": "/img/crown.jpg"
+        }
+    ],
+    "websiteContactTitle": "Contact us",
+    "websiteContactText": "Contact us today to book an appointment at <strong>COMPANY_EMAIL</strong> or call us at <strong>COMPANY_PHONE</strong>.",
+    "websiteContactSchedule": [
+        {
+            "day": "Monday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Tuesday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Wednesday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Thursday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Friday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Saturday",
+            "hours": "8:00 AM - 5:00 PM"
+        },
+        {
+            "day": "Sunday",
+            "hours": "Closed"
+        }
+    ],
+    "websiteFooterMenuItems": [
+        {
+            "name": "Dentist at Montreal",
+            "link": "/#"
+        },
+        {
+            "name": "Services",
+            "link": "/#services"
+        },
+        {
+            "name": "Contact",
+            "link": "/#contact"
+        },
+        {
+            "name": "Privacy Policy",
+            "link": "/policy.html"
+        }
+    ],
+    "websiteFooterSocialMedia": [
+        {
+            "name": "Facebook",
+            "link": "https://www.facebook.com/"
+        },
+        {
+            "name": "Twitter",
+            "link": "https://twitter.com/"
+        },
+        {
+            "name": "Instagram",
+            "link": "https://www.instagram.com/"
+        },
+        {
+            "name": "LinkedIn",
+            "link": "https://www.linkedin.com/"
+        }
+    ]
+}
