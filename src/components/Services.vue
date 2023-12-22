@@ -28,6 +28,7 @@ import { websiteServices, websiteServicesText, websiteServicesTitle } from '../.
 <style scoped>
 .services-card {
   box-shadow: -4px 4px 10px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
 }
 
 .services-row {
