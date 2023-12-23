@@ -30,6 +30,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.page-section {
+  padding-top: 40px;
+}
+
 .page-section h2.section-heading {
   margin-bottom: 30px;
 }
