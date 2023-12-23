@@ -34,41 +34,37 @@ onMounted(async () => {
   handleRouteChange();
 });
 
-// const routes: { [key: string]: string } = websiteRoutes.value;
-
 const currentPath = ref(window.location.hash);
 const isPolicy = ref(false);
 const isError404 = ref(false);
-console.log('currentView', isPolicy.value, isError404.value);
+// console.log('currentView', isPolicy.value, isError404.value);
 
 window.addEventListener('hashchange', () => {
   handleRouteChange();
 });
 
 const handleRouteChange = async () => {
-  const response = await fetch('/config.json');
-  const data = await response.json();
-  websiteRoutes.value = data.websiteRoutes;
+  if (!Object.keys(websiteRoutes.value).length) {
+    const response = await fetch('/config.json');
+    const data = await response.json();
+    websiteRoutes.value = data.websiteRoutes;
+  }
+
   const routes: { [key: string]: string } = websiteRoutes.value;
   currentPath.value = window.location.hash
   const currentView = routes[currentPath.value || '#'] || 'Error404';
   isPolicy.value = currentView === 'Policy';
   isError404.value = currentView === 'Error404';
-  console.log('currentView', currentView);
+  // console.log('currentView', currentView);
+
+  // if currentPath.value exists in dom then scroll to it
+  if (currentPath.value) {
+    const element = document.querySelector(currentPath.value);
+    if (element) {
+      element.scrollIntoView();
+    }
+  }
 };
-
-// if (currentPath.value.includes('#page-')) {
-//   const currentView = routes[currentPath.value.replace('#page-', '') || '/'] || 'Error404';
-//   isPolicy = currentView === 'Policy';
-//   isError404 = currentView === 'Error404';
-//   console.log('currentView', currentView);
-// }
-
-// const currentView = routes[currentPath.value.slice(1) || '/'] || 'Error404';
-// const currentView = routes[currentPath.value || '#'] || 'Error404';
-// isPolicy = currentView === 'Policy';
-// isError404 = currentView === 'Error404';
-// console.log('currentView', currentView);
 </script>
 
 <style>

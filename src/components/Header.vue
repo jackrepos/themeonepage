@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item" v-for="menuItem of websiteMenuItems">
-            <a class="nav-link" :class="{ 'js-scroll-trigger': menuItem.name === 'Contact' }" :href="menuItem.link">{{ menuItem.name }}</a>
+            <a class="nav-link" :class="{ 'js-scroll-trigger': menuItem.name === 'Contact' }" :href="menuItem.link" @click="collapseMenuOnMobile">{{ menuItem.name }}</a>
           </li>
         </ul>
       </div>
@@ -51,6 +51,15 @@ onMounted(() => {
     forceShrink.value = shouldShrink();
   });
 });
+
+const collapseMenuOnMobile = () => {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarResponsive = document.querySelector('#navbarResponsive');
+  if (navbarToggler && navbarResponsive) {
+    navbarToggler.classList.add('collapsed');
+    navbarResponsive.classList.remove('show');
+  }
+};
 </script>
 
 <style scoped>
