@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+    ],
+    "settings": {
+        "favorites.resources": [
+            {
+                "filePath": "themeonepage.code-workspace",
+                "group": "Default"
+            },
+            {
+                "filePath": "D:\\Jack\\Documents\\vscode\\.eslintrc.json",
+                "group": "Default"
+            },
+            {
+                "filePath": "src\\App.vue",
+                "group": "Default"
+            }
+        ]
+    },
+    "extensions": {
+        "recommendations": [
+            "dbaeumer.vscode-eslint"
+        ]
+    }
+}

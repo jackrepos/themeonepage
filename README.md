@@ -1,10 +1,14 @@
-# themeonepage
+# Theme Onepage
 
 Theme for a simple onepage website
 
 <https://github.com/jackrepos/themeonepage>
 
-## Project Setup
+Demo: <https://tog.webrepo.co/>
+
+![cover](cover.jpeg)
+
+## Installation
 
 ```sh
 npm install
